@@ -17,7 +17,7 @@ header.top h1{margin:0 0 4px;font-size:28px}
 header.top p{margin:0;color:var(--sub);font-size:16px}
 nav#toc{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line);padding:8px 0;display:flex;gap:6px;overflow-x:auto;white-space:nowrap}
 nav#toc a{flex:none;padding:6px 12px;border:1px solid var(--line);border-radius:999px;text-decoration:none;color:var(--ink);font-size:15px;background:var(--card)}
-.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:6px 20px 18px;margin:18px 0}
+.card{scroll-margin-top:64px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:6px 20px 18px;margin:18px 0}
 h2{font-size:23px;margin:18px 0 8px;color:var(--accent)}
 h3,h4{margin:16px 0 6px}
 table{border-collapse:collapse;width:100%;font-size:16px;margin:10px 0;display:block;overflow-x:auto}
@@ -154,8 +154,10 @@ footer{color:var(--sub);font-size:14px;text-align:center;margin-top:30px}
 </code></pre></div>
 <p>(병원도 정보 정리가 어려우면 위 "질문받기 방식"에서 가게 → 의원으로 바꿔 쓰세요.)</p>
 <p><strong>성공 기준:</strong> 페이지를 만들지 않고 <strong>계획(순서·내용)</strong> 이 나온다.
-<strong>막힐 때:</strong> 곧바로 만들어 버렸다면 → "다시 처음부터, 계획만 먼저 알려 주세요"라고 보내세요.
-- [ ] 계획을 읽어 보았다</p></section>
+<strong>막힐 때:</strong> 곧바로 만들어 버렸다면 → "다시 처음부터, 계획만 먼저 알려 주세요"라고 보내세요.</p>
+<ul>
+<li class="task"><label><input type="checkbox"> <span>계획을 읽어 보았다</span></label></li>
+</ul></section>
 <section class="card" id="c3"><h2>카드 2. 계획 승인하고 만들게 하기</h2>
 <p><strong>붙여넣을 문장</strong></p>
 <div class="codebox"><button class="copy" type="button">복사</button><pre><code>좋아요. 이제 만들어 주세요.
@@ -166,8 +168,10 @@ footer{color:var(--sub);font-size:14px;text-align:center;margin-top:30px}
 </code></pre></div>
 <p><strong>성공 기준:</strong> 페이지가 만들어지고, 위 세 가지 답이 나온다.
 <strong>주의:</strong> 1번은 AI의 자체 점검일 뿐입니다. AI가 "다른 점 없음"이라고 해도 <strong>내가 직접</strong> 가격·시간·전화를 눈으로 맞춰 봅니다(카드 4 확인 체크).
-<strong>막힐 때:</strong> 내용이 엉뚱하면 카드 4로.
-- [ ] 완료</p></section>
+<strong>막힐 때:</strong> 내용이 엉뚱하면 카드 4로.</p>
+<ul>
+<li class="task"><label><input type="checkbox"> <span>완료</span></label></li>
+</ul></section>
 <section class="card" id="c4"><h2>카드 3. 내 컴퓨터에서 열어 보기</h2>
 <ol>
 <li>AI가 준 결과를 파일로 저장한다. 파일 이름은 반드시 <strong><code>index.html</code></strong> (영어 소문자). 바탕화면에 새 폴더(예: <code>내가게</code>)를 만들어 그 안에 넣는다 <code>[화면 확인 필요: 저장·다운로드 방법은 강의 때 시연]</code></li>
@@ -178,8 +182,10 @@ footer{color:var(--sub);font-size:14px;text-align:center;margin-top:30px}
 <strong>막힐 때:</strong> 글자가 깨지면 → 아래를 보내세요.</p>
 <div class="codebox"><button class="copy" type="button">복사</button><pre><code>한글이 깨지지 않게 다시 만들어 주세요.
 </code></pre></div>
-<p>파일이 어디 있는지 모르겠다면 손을 들어 주세요.
-- [ ] 내 컴퓨터에서 열렸다</p></section>
+<p>파일이 어디 있는지 모르겠다면 손을 들어 주세요.</p>
+<ul>
+<li class="task"><label><input type="checkbox"> <span>내 컴퓨터에서 열렸다</span></label></li>
+</ul></section>
 <section class="card" id="c5"><h2>카드 4. 말로 고치기 (2번)</h2>
 <p><strong>고치기 문장 예 (골라서 쓰거나 내 말로)</strong></p>
 <div class="codebox"><button class="copy" type="button">복사</button><pre><code>전화번호를 더 크게 해 주세요.
@@ -189,11 +195,13 @@ footer{color:var(--sub);font-size:14px;text-align:center;margin-top:30px}
 <div class="codebox"><button class="copy" type="button">복사</button><pre><code>메뉴 가격이 더 눈에 띄게 해 주세요.  (병원: 진료시간이 더 눈에 띄게 해 주세요.)
 </code></pre></div>
 <p><strong>성공 기준:</strong> 말한 대로 바뀐다. 안 바뀌면 같은 말을 더 구체적으로 다시 한다.</p>
-<p><strong>확인 체크 (직접 눈으로)</strong>
-- [ ] 이름·시간·전화가 한눈에 보인다
-- [ ] 내가 준 정보와 다른 내용이 없다 (가격·시간 대조)
-- [ ] 비어 있는 곳이 <code>[입력 필요]</code>로 남아 있다 (지어내지 않았다)
-- [ ] 휴대폰 크기(창을 좁혀서)로도 보인다</p></section>
+<p><strong>확인 체크 (직접 눈으로)</strong></p>
+<ul>
+<li class="task"><label><input type="checkbox"> <span>이름·시간·전화가 한눈에 보인다</span></label></li>
+<li class="task"><label><input type="checkbox"> <span>내가 준 정보와 다른 내용이 없다 (가격·시간 대조)</span></label></li>
+<li class="task"><label><input type="checkbox"> <span>비어 있는 곳이 <code>[입력 필요]</code>로 남아 있다 (지어내지 않았다)</span></label></li>
+<li class="task"><label><input type="checkbox"> <span>휴대폰 크기(창을 좁혀서)로도 보인다</span></label></li>
+</ul></section>
 <section class="card" id="c6"><h2>카드 4A. 올리기 전 점검 — 공개됩니다</h2>
 <p>올리면 주소를 아는 사람은 <strong>누구나</strong> 볼 수 있습니다.</p>
 <ul>
@@ -216,8 +224,10 @@ footer{color:var(--sub);font-size:14px;text-align:center;margin-top:30px}
 <li><code>[  ]</code> (예: 만들어진 주소 복사)</li>
 </ol>
 <p><strong>성공 기준:</strong> 인터넷 주소(<code>https://...</code>)가 생겼다.
-<strong>막힐 때:</strong> 손을 들어 주세요. 20분 안에 못 올려도 괜찮습니다. 쉬는 시간에 이어서 도와드립니다.
-- [ ] 주소가 생겼다</p></section>
+<strong>막힐 때:</strong> 손을 들어 주세요. 20분 안에 못 올려도 괜찮습니다. 쉬는 시간에 이어서 도와드립니다.</p>
+<ul>
+<li class="task"><label><input type="checkbox"> <span>주소가 생겼다</span></label></li>
+</ul></section>
 <section class="card" id="c8"><h2>카드 4C. 휴대폰으로 열어 보기 (직접 확인!)</h2>
 <ol>
 <li>주소를 카톡 "나에게 보내기"로 보낸다</li>
@@ -235,8 +245,10 @@ footer{color:var(--sub);font-size:14px;text-align:center;margin-top:30px}
 (병원: 진단·치료 상담이 아니라 진료시간, 예약, 위치, 주차, 준비물 같은 안내성 질문만)
 질문은 한 줄에 하나씩, 짧게 써 주세요. 한 질문에 여러 물음을 붙이지 마세요.
 </code></pre></div>
-<p><strong>성공 기준:</strong> 질문 10개가 나온다. 우리 가게와 안 맞는 질문은 지우고 내 질문을 추가한다.
-- [ ] 내 질문 10개가 정리되었다</p></section>
+<p><strong>성공 기준:</strong> 질문 10개가 나온다. 우리 가게와 안 맞는 질문은 지우고 내 질문을 추가한다.</p>
+<ul>
+<li class="task"><label><input type="checkbox"> <span>내 질문 10개가 정리되었다</span></label></li>
+</ul></section>
 <section class="card" id="c10"><h2>카드 6. 답변 문구 만들기 + 확인</h2>
 <p><strong>붙여넣을 문장</strong> (사실은 내가 주기)</p>
 <div class="codebox"><button class="copy" type="button">복사</button><pre><code>아래 질문마다 손님에게 보낼 답변 문구를 만들어 주세요.
@@ -257,11 +269,13 @@ footer{color:var(--sub);font-size:14px;text-align:center;margin-top:30px}
 <p><strong>말투 바꾸기:</strong></p>
 <div class="codebox"><button class="copy" type="button">복사</button><pre><code>같은 답변을 더 친근하게 바꿔 주세요.   /   더 정중하게 바꿔 주세요.
 </code></pre></div>
-<p><strong>확인 체크</strong>
-- [ ] 가격·시간이 내가 준 정보와 같다
-- [ ] 없는 정보를 지어낸 곳이 없다
-- [ ] (병원) 효과 보장·진단 표현이 없다
-- [ ] 우리 가게 말투에 맞는다</p></section>
+<p><strong>확인 체크</strong></p>
+<ul>
+<li class="task"><label><input type="checkbox"> <span>가격·시간이 내가 준 정보와 같다</span></label></li>
+<li class="task"><label><input type="checkbox"> <span>없는 정보를 지어낸 곳이 없다</span></label></li>
+<li class="task"><label><input type="checkbox"> <span>(병원) 효과 보장·진단 표현이 없다</span></label></li>
+<li class="task"><label><input type="checkbox"> <span>우리 가게 말투에 맞는다</span></label></li>
+</ul></section>
 <section class="card" id="c11"><h2>카드 7. 글쓰기 비서 만들기</h2>
 <p><strong>1) 비서 지시문 — 한 번만 넣기</strong></p>
 <div class="codebox"><button class="copy" type="button">복사</button><pre><code>지금부터 당신은 [가게/의원 이름]의 글쓰기 비서입니다.
