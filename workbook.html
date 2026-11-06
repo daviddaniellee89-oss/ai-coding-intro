@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>따라하기 워크북</title>
+<style>
+:root{--bg:#faf6ee;--card:#fff;--ink:#2b2118;--sub:#6b5d50;--line:#e6dccb;--accent:#a8481f;--accent-ink:#fff;--code:#f3ece0;--warn:#fff2d6}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#1b1713;--card:#26201a;--ink:#f1e8da;--sub:#b9ab99;--line:#3a3128;--accent:#e08a5c;--accent-ink:#1b1713;--code:#2f271f;--warn:#3a3020}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.7 "Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px 80px}
+.banner{background:var(--warn);border-bottom:1px solid var(--line);padding:10px 16px;font-size:15px;text-align:center}
+header.top{padding:24px 0 8px}
+header.top h1{margin:0 0 4px;font-size:28px}
+header.top p{margin:0;color:var(--sub);font-size:16px}
+nav#toc{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line);padding:8px 0;display:flex;gap:6px;overflow-x:auto;white-space:nowrap}
+nav#toc a{flex:none;padding:6px 12px;border:1px solid var(--line);border-radius:999px;text-decoration:none;color:var(--ink);font-size:15px;background:var(--card)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:6px 20px 18px;margin:18px 0}
+h2{font-size:23px;margin:18px 0 8px;color:var(--accent)}
+h3,h4{margin:16px 0 6px}
+table{border-collapse:collapse;width:100%;font-size:16px;margin:10px 0;display:block;overflow-x:auto}
+th,td{border:1px solid var(--line);padding:6px 10px;text-align:left;vertical-align:top}
+th{background:var(--code)}
+blockquote{margin:10px 0;padding:8px 14px;background:var(--code);border-left:4px solid var(--line);color:var(--sub);font-size:16px}
+.codebox{position:relative;margin:12px 0}
+.codebox pre{margin:0;background:var(--code);border:1px solid var(--line);border-radius:12px;padding:14px 14px 14px;white-space:pre-wrap;word-break:keep-all;overflow-wrap:anywhere;font:15.5px/1.65 "Malgun Gothic",ui-monospace,monospace}
+.copy{position:sticky;display:block;margin:0 0 6px auto;top:60px;background:var(--accent);color:var(--accent-ink);border:0;border-radius:10px;padding:8px 16px;font-size:16px;font-weight:700;cursor:pointer}
+.copy.done{opacity:.75}
+ul{padding-left:22px}
+li.task{list-style:none;margin-left:-22px}
+li.task label{display:flex;gap:10px;align-items:flex-start;cursor:pointer}
+li.task input{width:22px;height:22px;margin-top:5px;flex:none}
+li.task input:checked + span{color:var(--sub);text-decoration:line-through}
+code{background:var(--code);padding:1px 5px;border-radius:5px}
+.codebox code{background:none;padding:0}
+footer{color:var(--sub);font-size:14px;text-align:center;margin-top:30px}
+</style>
+</head>
+<body>
+<div class="banner">초안입니다. 강의 전 리허설로 확인 중이며, <b>[확인 필요]</b> 표시는 수업 전에 채워집니다.</div>
+<div class="wrap">
+<header class="top"><h1>따라하기 워크북</h1><p>AI에게 일 시키기 · 입문 특강. 지시문 옆 <b>복사</b> 버튼을 누르고 [  ] 칸을 내 정보로 바꿔 붙여넣으세요.</p></header>
+<nav id="toc" aria-label="카드 목록"></nav>
+<section class="card" id="c0"><h2>카드 0. 시작 전 약속 3가지</h2>
+<ul>
+<li class="task"><label><input type="checkbox"> <span>손님·환자 이름, 전화번호 등 <strong>개인정보는 넣지 않는다</strong></span></label></li>
+<li class="task"><label><input type="checkbox"> <span><strong>비밀번호·카드번호</strong>는 절대 넣지 않는다</span></label></li>
+<li class="task"><label><input type="checkbox"> <span>AI가 "됐습니다" 해도 믿지 않고 <strong>내가 직접 열어 확인한다</strong></span></label></li>
+<li class="task"><label><input type="checkbox"> <span>(병원) AI가 쓴 문구는 <strong>원장이 직접 검토한 뒤</strong>에만 쓴다. 의료광고 규정은 별도 확인</span></label></li>
+<li class="task"><label><input type="checkbox"> <span>인터넷에 올리는 것은 <strong>공개해도 되는 정보만</strong> (오늘은 카드 4A로 한 번 더 점검)</span></label></li>
+</ul>
+<p><strong>준비 완료 기준:</strong> Claude 화면에서 글 쓰는 칸이 보인다.
+<strong>막힐 때:</strong> 손을 들어 주세요. 옆 분과 화면을 같이 보셔도 됩니다.</p></section>
+<section class="card" id="c1"><h2>지시문 틀 (카드 1~8에서 계속 씁니다)</h2>
+<table>
+<thead>
+<tr>
+<th>칸</th>
+<th>질문</th>
+<th>예</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>① 나는 누구</td>
+<td>업종·위치·손님</td>
+<td>대구 중구에서 한식집을 하는 사장입니다</td>
+</tr>
+<tr>
+<td>② 무엇을</td>
+<td>만들 것</td>
+<td>가게 소개 홈페이지 한 장</td>
+</tr>
+<tr>
+<td>③ 조건</td>
+<td>말투·분량·하지 말 것</td>
+<td>쉬운 말, 지어내지 말 것</td>
+</tr>
+<tr>
+<td>④ 확인</td>
+<td>끝나면 어떻게 보나</td>
+<td>여는 방법을 알려 주세요</td>
+</tr>
+</tbody>
+</table></section>
+<section class="card" id="c2"><h2>카드 1. 홈페이지 — 계획부터 받기</h2>
+<p><strong>목표:</strong> 바로 만들지 않고, 계획을 먼저 받는다.</p>
+<p><strong>자영업자 — 복사해서 [  ]를 채워 붙여넣기</strong></p>
+<div class="codebox"><button class="copy" type="button">복사</button><pre><code>저는 [지역]에서 [업종]을 하는 사장입니다. 코딩은 전혀 모릅니다.
+우리 가게를 소개하는 홈페이지를 만들고 싶습니다.
+
+[가게 정보] (아는 것만 쓰고, 모르는 칸은 비워 두세요)
+- 가게 이름: [  ]
+- 대표 메뉴와 가격: [  ]
+- 영업시간 / 휴무일: [  ]
+- 주소 / 전화번호: [  ]
+- 분위기·특징 한 줄: [  ]
+
+만드는 규칙:
+- 파일 하나(index.html)로 만들어 주세요. 다른 파일이나 인터넷 연결 없이도 열려야 합니다
+- 손님이 휴대폰으로 볼 것이므로 글자는 크게, 화면 3개 분량 이내
+- 한글이 깨지지 않게 해 주세요
+- 사진은 없으니 색과 글자만으로 깔끔하게 해 주세요
+- 전화번호를 누르면 전화가 걸리게 해 주세요
+- 맨 위에 작게 &quot;수업 연습용 페이지입니다&quot;를 넣어 주세요
+- 제가 준 정보 외에는 지어내지 말고, 빈 곳은 &quot;[입력 필요]&quot;로 남겨 주세요
+- 어려운 용어는 쓰지 마세요
+- 제가 주지 않은 문장은 추가하지 마세요 (추가하고 싶은 문장은 만들기 전에 먼저 물어봐 주세요)
+
+먼저 만들지 말고 아래만 알려 주세요.
+1. 어떤 순서로 무엇을 넣을지 (5줄 이내)
+2. 제가 아직 안 준 정보 중 꼭 필요한 것
+제가 &quot;좋아요&quot;라고 하면 그때 만들어 주세요.
+</code></pre></div>
+<p><strong>정보 정리가 어려운 분 — 대신 이렇게 시작해도 됩니다 (질문받기 방식)</strong></p>
+<div class="codebox"><button class="copy" type="button">복사</button><pre><code>저는 [지역]에서 [업종]을 하는 사장입니다. 코딩은 전혀 모릅니다.
+우리 가게를 소개하는 홈페이지를 만들고 싶습니다.
+필요한 정보를 한 번에 하나씩 질문해 주세요.
+모르겠다고 하면 &quot;[입력 필요]&quot;로 두고 다음 질문으로 넘어가 주세요.
+질문이 끝나면 계획만 먼저 알려 주세요. 제가 &quot;좋아요&quot;라고 하기 전에는 만들지 마세요.
+(만들 때 규칙: 파일 하나(index.html), 휴대폰 기준 큰 글자, 한글 깨짐 없이, 맨 위에 &quot;수업 연습용 페이지입니다&quot;, 제가 준 정보 외에는 지어내지 말기)
+</code></pre></div>
+<p><strong>병원 — 복사해서 [  ]를 채워 붙여넣기 (가상 정보로)</strong></p>
+<div class="codebox"><button class="copy" type="button">복사</button><pre><code>저는 [지역]에서 [진료과]의원을 운영하는 원장입니다. 코딩은 전혀 모릅니다.
+우리 의원을 소개하는 홈페이지를 만들고 싶습니다.
+(오늘은 연습이므로 아래는 모두 가상 정보입니다. 실제 환자 정보는 없습니다.)
+
+[의원 정보] (아는 것만 쓰고, 모르는 칸은 비워 두세요)
+- 의원 이름 / 진료과목: [  ]
+- 진료시간: [  ]
+- 점심시간: [  ]
+- 휴진일(토요일·공휴일 포함): [  ]
+- 주소: [  ]
+- 주차: [  ]
+- 전화: [  ]
+
+만드는 규칙:
+- 파일 하나(index.html)로 만들어 주세요. 다른 파일이나 인터넷 연결 없이도 열려야 합니다
+- 휴대폰 화면 기준, 글자 크게, 화면 3개 분량 이내, 한글이 깨지지 않게
+- 사진은 없으니 색과 글자만으로 차분하고 신뢰가 가는 느낌으로
+- 전화번호를 누르면 전화가 걸리게 해 주세요
+- 맨 위에 작게 &quot;수업 연습용 페이지입니다&quot;를 넣어 주세요
+- 진료 효과를 보장하는 말, 과장하는 말, 다른 병원과 비교하는 말, 치료 전후를 암시하는 말은 쓰지 마세요
+- 제가 준 정보 외에는 지어내지 말고, 빈 곳은 &quot;[입력 필요]&quot;로 남겨 주세요
+- 제가 주지 않은 문장(안내 문구, 소개 문구)은 추가하지 마세요. 추가하고 싶은 문장은 만들기 전에 먼저 물어봐 주세요
+- 이 페이지는 수업에서 연습용으로 인터넷에 올릴 예정입니다. &quot;가상 정보라 공개하면 안 된다&quot;는 경고는 하지 않아도 됩니다
+
+먼저 만들지 말고 아래만 알려 주세요.
+1. 어떤 순서로 무엇을 넣을지 (5줄 이내)
+2. 제가 아직 안 준 정보 중 꼭 필요한 것
+제가 &quot;좋아요&quot;라고 하면 그때 만들어 주세요.
+</code></pre></div>
+<p>(병원도 정보 정리가 어려우면 위 "질문받기 방식"에서 가게 → 의원으로 바꿔 쓰세요.)</p>
+<p><strong>성공 기준:</strong> 페이지를 만들지 않고 <strong>계획(순서·내용)</strong> 이 나온다.
+<strong>막힐 때:</strong> 곧바로 만들어 버렸다면 → "다시 처음부터, 계획만 먼저 알려 주세요"라고 보내세요.
+- [ ] 계획을 읽어 보았다</p></section>
+<section class="card" id="c3"><h2>카드 2. 계획 승인하고 만들게 하기</h2>
+<p><strong>붙여넣을 문장</strong></p>
+<div class="codebox"><button class="copy" type="button">복사</button><pre><code>좋아요. 이제 만들어 주세요.
+다 만든 뒤에 아래 세 가지를 알려 주세요.
+1. 제가 준 정보와 다르게 쓴 부분이 있는지, &quot;[입력 필요]&quot;로 남긴 곳은 어디인지
+2. 코딩을 모르는 사람이 이 파일을 저장하고 내 컴퓨터에서 여는 방법 (5줄 이내로 짧게, 개발자 도구(F12) 같은 건 빼 주세요)
+3. 인터넷에 올릴 때 쓸 폴더 만드는 법 (index.html이 폴더 맨 위에 있어야 합니다)
+</code></pre></div>
+<p><strong>성공 기준:</strong> 페이지가 만들어지고, 위 세 가지 답이 나온다.
+<strong>주의:</strong> 1번은 AI의 자체 점검일 뿐입니다. AI가 "다른 점 없음"이라고 해도 <strong>내가 직접</strong> 가격·시간·전화를 눈으로 맞춰 봅니다(카드 4 확인 체크).
+<strong>막힐 때:</strong> 내용이 엉뚱하면 카드 4로.
+- [ ] 완료</p></section>
+<section class="card" id="c4"><h2>카드 3. 내 컴퓨터에서 열어 보기</h2>
+<ol>
+<li>AI가 준 결과를 파일로 저장한다. 파일 이름은 반드시 <strong><code>index.html</code></strong> (영어 소문자). 바탕화면에 새 폴더(예: <code>내가게</code>)를 만들어 그 안에 넣는다 <code>[화면 확인 필요: 저장·다운로드 방법은 강의 때 시연]</code></li>
+<li>저장된 파일을 <strong>더블클릭</strong>한다</li>
+<li>인터넷 창에 우리 가게(의원) 페이지가 뜬다</li>
+</ol>
+<p><strong>성공 기준:</strong> 내 가게 이름이 보이는 페이지가 열린다.
+<strong>막힐 때:</strong> 글자가 깨지면 → 아래를 보내세요.</p>
+<div class="codebox"><button class="copy" type="button">복사</button><pre><code>한글이 깨지지 않게 다시 만들어 주세요.
+</code></pre></div>
+<p>파일이 어디 있는지 모르겠다면 손을 들어 주세요.
+- [ ] 내 컴퓨터에서 열렸다</p></section>
+<section class="card" id="c5"><h2>카드 4. 말로 고치기 (2번)</h2>
+<p><strong>고치기 문장 예 (골라서 쓰거나 내 말로)</strong></p>
+<div class="codebox"><button class="copy" type="button">복사</button><pre><code>전화번호를 더 크게 해 주세요.
+</code></pre></div>
+<div class="codebox"><button class="copy" type="button">복사</button><pre><code>맨 위에 &quot;전화하기&quot; 버튼을 넣어 주세요.
+</code></pre></div>
+<div class="codebox"><button class="copy" type="button">복사</button><pre><code>메뉴 가격이 더 눈에 띄게 해 주세요.  (병원: 진료시간이 더 눈에 띄게 해 주세요.)
+</code></pre></div>
+<p><strong>성공 기준:</strong> 말한 대로 바뀐다. 안 바뀌면 같은 말을 더 구체적으로 다시 한다.</p>
+<p><strong>확인 체크 (직접 눈으로)</strong>
+- [ ] 이름·시간·전화가 한눈에 보인다
+- [ ] 내가 준 정보와 다른 내용이 없다 (가격·시간 대조)
+- [ ] 비어 있는 곳이 <code>[입력 필요]</code>로 남아 있다 (지어내지 않았다)
+- [ ] 휴대폰 크기(창을 좁혀서)로도 보인다</p></section>
+<section class="card" id="c6"><h2>카드 4A. 올리기 전 점검 — 공개됩니다</h2>
+<p>올리면 주소를 아는 사람은 <strong>누구나</strong> 볼 수 있습니다.</p>
+<ul>
+<li class="task"><label><input type="checkbox"> <span>손님·환자 이름, 전화번호 등 개인정보가 <strong>없다</strong></span></label></li>
+<li class="task"><label><input type="checkbox"> <span>비밀번호·카드번호가 <strong>없다</strong></span></label></li>
+<li class="task"><label><input type="checkbox"> <span>(병원) 가상 정보이고, 페이지 맨 위에 <strong>"연습용"</strong> 표시가 있다. 아니면 아래를 보내세요.</span></label></li>
+</ul>
+<div class="codebox"><button class="copy" type="button">복사</button><pre><code>페이지 맨 위에 작게 &quot;수업 연습용 페이지입니다&quot;라고 넣어 주세요.
+</code></pre></div>
+<ul>
+<li class="task"><label><input type="checkbox"> <span>실제 전화번호를 넣었다면 <strong>공개해도 되는 가게 대표번호</strong>인지 확인했다</span></label></li>
+</ul></section>
+<section class="card" id="c7"><h2>카드 4B. 인터넷에 올리기</h2>
+<blockquote>
+<p><code>[확인 필요]</code> 올리는 서비스와 단계는 강의 전 확정해 이 카드에 채웁니다. 강사 시연을 보면서 따라 합니다.</p>
+</blockquote>
+<ol>
+<li><code>[  ]</code> (예: 서비스 접속 → 가입/로그인 → 이메일 인증)</li>
+<li><code>[  ]</code> (예: 만든 파일 올리기)</li>
+<li><code>[  ]</code> (예: 만들어진 주소 복사)</li>
+</ol>
+<p><strong>성공 기준:</strong> 인터넷 주소(<code>https://...</code>)가 생겼다.
+<strong>막힐 때:</strong> 손을 들어 주세요. 20분 안에 못 올려도 괜찮습니다. 쉬는 시간에 이어서 도와드립니다.
+- [ ] 주소가 생겼다</p></section>
+<section class="card" id="c8"><h2>카드 4C. 휴대폰으로 열어 보기 (직접 확인!)</h2>
+<ol>
+<li>주소를 카톡 "나에게 보내기"로 보낸다</li>
+<li><strong>휴대폰에서</strong> 연다</li>
+<li>이름·시간·전화가 보이는지 확인한다</li>
+</ol>
+<ul>
+<li class="task"><label><input type="checkbox"> <span>휴대폰에서 열렸다 (AI가 "올렸다"고 말한 것만으로는 완료가 아닙니다)</span></label></li>
+<li class="task"><label><input type="checkbox"> <span>열린 화면을 사진으로 찍어 두었다</span></label></li>
+</ul>
+<p><strong>수업 후 정리:</strong> 연습용 페이지는 쓰지 않으면 삭제합니다. 삭제 방법: <code>[확인 필요 — 확정한 서비스 기준으로 강의 전 작성]</code></p></section>
+<section class="card" id="c9"><h2>카드 5. 자주 묻는 질문 10개 뽑기</h2>
+<p><strong>붙여넣을 문장</strong></p>
+<div class="codebox"><button class="copy" type="button">복사</button><pre><code>저는 [업종]을 하는 사장입니다. 손님들이 예약이나 문의할 때 자주 묻는 질문 10개를 뽑아 주세요.
+(병원: 진단·치료 상담이 아니라 진료시간, 예약, 위치, 주차, 준비물 같은 안내성 질문만)
+질문은 한 줄에 하나씩, 짧게 써 주세요. 한 질문에 여러 물음을 붙이지 마세요.
+</code></pre></div>
+<p><strong>성공 기준:</strong> 질문 10개가 나온다. 우리 가게와 안 맞는 질문은 지우고 내 질문을 추가한다.
+- [ ] 내 질문 10개가 정리되었다</p></section>
+<section class="card" id="c10"><h2>카드 6. 답변 문구 만들기 + 확인</h2>
+<p><strong>붙여넣을 문장</strong> (사실은 내가 주기)</p>
+<div class="codebox"><button class="copy" type="button">복사</button><pre><code>아래 질문마다 손님에게 보낼 답변 문구를 만들어 주세요.
+
+[내 질문 10개]
+
+사실 정보:
+- 영업시간: [  ]
+- 주차: [  ]
+- 예약 방법: [  ]
+- 가격: [  ]
+
+조건:
+- 위 정보 밖의 내용은 지어내지 말고 &quot;확인 후 안내드리겠습니다&quot;라고 쓰기
+- 말투는 친절하고 짧게, 3문장 이내
+- (병원) 진단·치료 상담은 답하지 말고 &quot;내원해서 상담 부탁드립니다&quot;로 안내
+</code></pre></div>
+<p><strong>말투 바꾸기:</strong></p>
+<div class="codebox"><button class="copy" type="button">복사</button><pre><code>같은 답변을 더 친근하게 바꿔 주세요.   /   더 정중하게 바꿔 주세요.
+</code></pre></div>
+<p><strong>확인 체크</strong>
+- [ ] 가격·시간이 내가 준 정보와 같다
+- [ ] 없는 정보를 지어낸 곳이 없다
+- [ ] (병원) 효과 보장·진단 표현이 없다
+- [ ] 우리 가게 말투에 맞는다</p></section>
+<section class="card" id="c11"><h2>카드 7. 글쓰기 비서 만들기</h2>
+<p><strong>1) 비서 지시문 — 한 번만 넣기</strong></p>
+<div class="codebox"><button class="copy" type="button">복사</button><pre><code>지금부터 당신은 [가게/의원 이름]의 글쓰기 비서입니다.
+
+역할: 제가 메모를 주면 [후기 답글 / 인스타그램 글 / 공지] 초안을 써 줍니다.
+말투: [예: 따뜻하고 짧게, 존댓말]
+분량: [예: 5문장 이내]
+출력: 서로 다른 느낌의 초안 2개를 주고, 마지막에 &quot;메모에 없는 내용을 넣었는지&quot;를 한 줄로 알려 주세요.
+하지 말 것:
+- 제가 주지 않은 정보(가격, 효과, 수치, 날짜)를 지어내기
+- 손님 이름이나 개인정보 추측해서 쓰기
+- [병원] 효과를 보장하거나, 과장하거나, 다른 병원과 비교하는 표현
+모르는 부분은 &quot;[확인 필요]&quot;로 남겨 주세요.
+
+이해했으면 &quot;준비됐습니다&quot;라고만 답해 주세요.
+</code></pre></div>
+<p><strong>2) 메모만 던지기</strong></p>
+<div class="codebox"><button class="copy" type="button">복사</button><pre><code>[예: 오늘 신메뉴 된장찌개 나왔고 9천원, 오늘부터 판매]
+(병원 예: 12월 휴진 안내, 12월 25일 휴진)
+</code></pre></div>
+<p><strong>성공 기준:</strong> 메모 내용이 사실 그대로 들어간 글 초안이 나온다.
+<strong>꼭 읽어 볼 것:</strong> AI가 마지막 줄에 "메모에 없는 내용은 넣지 않았다"고 해도 틀릴 수 있습니다. 초안을 메모와 한 줄씩 맞춰 보세요. (시험에서 "점심이나 저녁에 들르세요"처럼 메모에 없는 영업 시간대를 암시한 문장이 나왔습니다.)
+<strong>선택 과제 (빨리 끝난 분):</strong> 메모를 칸에 적으면 되는 입력 양식 페이지를 만들어 달라고 해 보세요. (주의: 이 페이지가 스스로 글을 써 주지는 않습니다. 양식만 정리해 주는 용도입니다. <code>[리허설 확인 필요]</code>)</p></section>
+<section class="card" id="c12"><h2>카드 8. 지시문 저장하기</h2>
+<ul>
+<li class="task"><label><input type="checkbox"> <span>카드 7의 비서 지시문을 메모장(또는 노트 앱)에 저장했다</span></label></li>
+<li class="task"><label><input type="checkbox"> <span>다음에 쓸 때는 복사해서 맨 처음에 붙여넣는다</span></label></li>
+<li><code>[Claude의 저장 기능(프로젝트 등)은 화면 확인 후 강의 때 안내]</code></li>
+</ul></section>
+<section class="card" id="c13"><h2>카드 9. Codex 비교 (강사 시연 · 보는 것만)</h2>
+<p>보면서 적어 보세요.</p>
+<table>
+<thead>
+<tr>
+<th>비교</th>
+<th>Claude</th>
+<th>Codex</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>처음 나온 답의 길이</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>말투</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>내가 준 정보를 지켰나</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>내가 더 마음에 든 쪽</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>(우열의 정답은 없습니다. 도구가 달라도 <strong>시키는 법과 확인하는 법은 같습니다.</strong>)</p></section>
+<section class="card" id="c14"><h2>카드 10. 확인 체크리스트 — 짝과 바꿔서 해 보기</h2>
+<p>옆 분의 결과물을 열어 <strong>틀린 곳 2개</strong>를 찾아 보세요.</p>
+<ul>
+<li class="task"><label><input type="checkbox"> <span>실제로 <strong>열어 보았다</strong> (말만 믿지 않았다)</span></label></li>
+<li class="task"><label><input type="checkbox"> <span><strong>숫자</strong>(가격·시간·전화)를 원본 정보와 맞춰 보았다</span></label></li>
+<li class="task"><label><input type="checkbox"> <span><strong>지어낸 내용</strong>이 없다</span></label></li>
+<li class="task"><label><input type="checkbox"> <span>같은 말이 반복되거나 어색한 곳이 없다</span></label></li>
+<li class="task"><label><input type="checkbox"> <span>(병원) 효과 보장·비교·과장 표현이 없다</span></label></li>
+<li class="task"><label><input type="checkbox"> <span>사람(나)이 마지막으로 읽었다</span></label></li>
+</ul>
+<p>찾은 틀린 곳 (적어 보세요): 1. 　　　　　　　　 2. 　　　　　　　　</p></section>
+<section class="card" id="c15"><h2>카드 11. 이번 주 숙제</h2>
+<p>내 가게/병원에서 <strong>이번 주에 딱 하나</strong> 해 볼 것에 동그라미 하세요.</p>
+<ul>
+<li class="task"><label><input type="checkbox"> <span>카드 1~4로 내 진짜 정보를 넣어 홈페이지 다시 만들어 보기 (병원은 원장 검수 후)</span></label></li>
+<li class="task"><label><input type="checkbox"> <span>자주 묻는 질문 답변을 실제 응대에 써 보기</span></label></li>
+<li class="task"><label><input type="checkbox"> <span>글쓰기 비서로 글 1개 만들어 올려 보기</span></label></li>
+<li class="task"><label><input type="checkbox"> <span>내가 정한 다른 한 가지 (종이에 적어 두세요)</span></label></li>
+</ul>
+<p>일주일 뒤 해 본 결과를 한 줄로 알려 주세요. <code>[전달 방법은 수업 때 안내합니다]</code></p></section>
+<section class="card" id="c16"><h2>부록. 막힐 때 대응</h2>
+<table>
+<thead>
+<tr>
+<th>증상</th>
+<th>해결</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>로그인이 안 된다</td>
+<td>손을 들어 주세요. 옆 분 화면 같이 보기</td>
+</tr>
+<tr>
+<td>결과가 엉뚱하다</td>
+<td>"다시, 아래 조건으로 해 주세요" + 조건 한 줄 추가</td>
+</tr>
+<tr>
+<td>만들어 놓고 안 열린다</td>
+<td>저장 위치 확인 후 더블클릭. 안 되면 손 들기</td>
+</tr>
+<tr>
+<td>글자가 깨진다</td>
+<td>"한글이 깨지지 않게 다시 만들어 주세요"</td>
+</tr>
+<tr>
+<td>사용량 제한 메시지</td>
+<td>잠시 쉬었다 다시 <code>[대체 방법은 사전 확인]</code></td>
+</tr>
+<tr>
+<td>개인정보를 넣을 뻔했다</td>
+<td>가상 이름으로 바꿔서 다시</td>
+</tr>
+</tbody>
+</table></section>
+<footer>체크 표시는 이 기기에만 저장됩니다.</footer>
+</div>
+<script>
+(function(){
+  var cards=document.querySelectorAll('.card');
+  var toc=document.getElementById('toc');
+  cards.forEach(function(c){
+    var h=c.querySelector('h2'); if(!h) return;
+    var m=h.textContent.match(/^(카드\s*[0-9A-C]+|부록|지시문 틀)/);
+    var a=document.createElement('a'); a.href='#'+c.id; a.textContent=m?m[1]:h.textContent.slice(0,6); toc.appendChild(a);
+  });
+  document.querySelectorAll('.copy').forEach(function(b){
+    b.addEventListener('click',function(){
+      var t=b.parentNode.querySelector('pre').innerText;
+      function ok(){b.textContent='복사됨';b.classList.add('done');setTimeout(function(){b.textContent='복사';b.classList.remove('done')},1500)}
+      function fallback(){var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');ok()}catch(e){b.textContent='길게 눌러 직접 복사'}document.body.removeChild(ta)}
+      if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(t).then(ok,fallback)}else{fallback()}
+    });
+  });
+  var boxes=document.querySelectorAll('li.task input'); var KEY='aicoding-workbook-v1';
+  var saved={}; try{saved=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){}
+  boxes.forEach(function(bx,i){
+    if(saved[i]) bx.checked=true;
+    bx.addEventListener('change',function(){saved[i]=bx.checked;try{localStorage.setItem(KEY,JSON.stringify(saved))}catch(e){}});
+  });
+})();
+</script>
+</body>
+</html>

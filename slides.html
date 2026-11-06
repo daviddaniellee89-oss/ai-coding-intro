@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>입문 특강 슬라이드</title>
+<style>
+:root{--bg:#faf6ee;--ink:#2b2118;--sub:#6b5d50;--line:#e6dccb;--accent:#a8481f;--accent-ink:#fff;--panel:#fff;--hi:#fff2d6}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#1b1713;--ink:#f1e8da;--sub:#b9ab99;--line:#3a3128;--accent:#e08a5c;--accent-ink:#1b1713;--panel:#26201a;--hi:#3a3020}}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{background:var(--bg);color:var(--ink);font-family:"Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif;overflow:hidden}
+#stage{height:100%;display:flex;flex-direction:column}
+#slide{flex:1;display:flex;flex-direction:column;justify-content:center;padding:4vh 8vw;overflow:auto}
+.part{font-size:clamp(14px,1.8vw,22px);color:var(--accent);font-weight:700;margin-bottom:1.2vh}
+h1{margin:0 0 2.5vh;font-size:clamp(30px,5.6vw,76px);line-height:1.25}
+ul.pts{list-style:none;margin:0;padding:0}
+ul.pts li{font-size:clamp(20px,3.2vw,44px);line-height:1.5;margin:.7vh 0;padding-left:1.1em;position:relative}
+ul.pts li::before{content:"";position:absolute;left:0;top:.62em;width:.45em;height:.45em;border-radius:50%;background:var(--accent)}
+.big{font-size:clamp(24px,4.2vw,58px);line-height:1.5;font-weight:700}
+.sub{font-size:clamp(16px,2.2vw,30px);color:var(--sub);margin-top:2vh}
+.box{background:var(--panel);border:2px solid var(--line);border-radius:18px;padding:2vh 2vw;margin-top:2vh;font-size:clamp(16px,2.4vw,34px);line-height:1.6;white-space:pre-line}
+.cam{margin-top:2.5vh;display:inline-block;padding:.5em 1em;border:2px dashed var(--line);border-radius:12px;font-size:clamp(14px,1.8vw,24px);color:var(--sub)}
+#notes{display:none;background:var(--hi);border-top:2px solid var(--line);padding:12px 4vw;font-size:clamp(14px,1.7vw,22px);max-height:28vh;overflow:auto}
+body.show-notes #notes{display:block}
+#bar{display:flex;align-items:center;gap:10px;padding:8px 14px;border-top:1px solid var(--line);background:var(--panel);font-size:15px}
+#bar .grow{flex:1;height:6px;background:var(--line);border-radius:3px;overflow:hidden}
+#bar .grow i{display:block;height:100%;background:var(--accent);width:0}
+button{background:var(--accent);color:var(--accent-ink);border:0;border-radius:10px;padding:8px 14px;font-size:15px;font-weight:700;cursor:pointer}
+button.ghost{background:var(--panel);color:var(--ink);border:1px solid var(--line)}
+.banner{background:var(--hi);text-align:center;font-size:13px;padding:4px;border-bottom:1px solid var(--line)}
+</style>
+</head>
+<body>
+<div id="stage">
+<div class="banner">초안 · 리허설 전 · 📷 표시 장은 실제 화면 캡처로 교체 예정</div>
+<main id="slide" aria-live="polite"></main>
+
+<div id="bar">
+<button class="ghost" id="prev">◀ 이전</button>
+<span id="pos">1 / 28</span>
+<div class="grow"><i id="prog"></i></div>
+
+<button class="ghost" id="fs">전체화면 (F)</button>
+<button id="next">다음 ▶</button>
+</div>
+</div>
+<script>
+var S=[
+{p:"1부 · 오프닝",t:"코딩 몰라도 됩니다",big:"AI에게 일 시키는 법",sub:"3시간 입문 특강 · 자영업자·병원 원장님을 위한"},
+{p:"1부 · 오프닝",t:"오늘 가져갈 것 3가지",pts:["내 가게(병원) 소개 홈페이지 — 인터넷 주소까지","예약·문의 자동 답변 문구","후기·SNS 글 쓰는 비서"],cam:"📷 완성본 3개 나란히 (리허설 결과물)"},
+{p:"1부 · 오프닝",t:"AI 코딩이란?",big:"말로 시키고,\n결과를 확인하는 것"},
+{p:"1부 · 오프닝",t:"유능한 신입 직원이 들어왔습니다",pts:["일은 엄청 빠릅니다","그런데 우리 가게 사정은 하나도 모릅니다","사장이 할 일: 설명하기 → 확인하기 → 고쳐 달라 하기"]},
+{p:"1부 · 오프닝",t:"오늘 순서",pts:["준비 · 약속 (20분)","① 홈페이지 만들고 올리기 (60분)","② 자동 답변 (25분)","③ 글쓰기 비서 (25분)","다른 AI와 비교 · 확인하는 습관 · 숙제 (25분)"]},
+{p:"2부 · 준비",t:"Claude에 접속하세요",pts:["로그인하세요","아래 글 쓰는 칸이 보이면 준비 끝"],cam:"📷 접속 화면 (최신 화면·주소는 수업 전 확인)"},
+{p:"2부 · 준비",t:"카톡처럼 쓰면 됩니다",pts:["말하듯 쓰고, 엔터로 보냅니다","마음에 안 들면 다시 말하면 됩니다"],cam:"📷 입력창 화면 표시"},
+{p:"2부 · 준비",t:"약속 4가지",pts:["① 손님·환자 개인정보는 넣지 않는다","② 비밀번호·카드번호는 넣지 않는다","③ 인터넷에 올리는 건 공개해도 되는 것만","④ AI가 '됐다' 해도 내가 직접 확인한다"]},
+{p:"2부 · 준비",t:"(병원) 환자 정보와 의료광고",pts:["연습은 전부 가상 정보로","환자 이름·연락처·차트는 입력 금지","효과 보장·과장·비교 표현은 쓰지 않기","AI가 쓴 문구는 원장이 직접 검수"]},
+{p:"3부 · 홈페이지",t:"지시문 틀 4칸",pts:["① 나는 누구 — 업종·위치·손님","② 무엇을 — 만들 것","③ 조건 — 말투·분량·하지 말 것","④ 확인 — 끝나면 어떻게 볼지"]},
+{p:"3부 · 홈페이지",t:"먼저 계획만, 좋아요 하면 만들기",big:"계획 → 승인 → 제작",sub:"바로 만들게 하지 마세요"},
+{p:"3부 · 홈페이지",t:"일부러 비워 보냈더니",pts:["비운 칸은 [입력 필요]로 남습니다","AI가 지어내지 않게 미리 말해 두기"],cam:"📷 영업시간을 비우고 보낸 시연 화면"},
+{p:"3부 · 홈페이지",t:"내 컴퓨터에서 열어 보기",box:"내가게 (폴더)\n└ index.html   ← 이 파일을 더블클릭",pts:["파일 이름은 반드시 index.html (영어 소문자)"]},
+{p:"3부 · 홈페이지",t:"말로 고치기",pts:["전화번호를 더 크게 해 주세요","맨 위에 '전화하기' 버튼을 넣어 주세요","메뉴 가격이 더 눈에 띄게 해 주세요"]},
+{p:"3부 · 홈페이지",t:"올리기 전에: 누구나 볼 수 있습니다",pts:["개인정보·환자 정보가 없는지","비밀번호·카드번호가 없는지","병원은 가상 정보 + '연습용' 표시","공개해도 되는 전화번호인지"]},
+{p:"3부 · 홈페이지",t:"인터넷에 올리기",pts:["강사 시연을 보며 따라 하세요","20분 안에 못 올려도 괜찮습니다"],cam:"📷 배포 단계 화면 (방식 확정 후)"},
+{p:"3부 · 홈페이지",t:"내 휴대폰으로 열어 보기",pts:["주소를 카톡 '나에게 보내기'로 보내기","휴대폰에서 열기","이름·시간·전화가 보이는지 확인"]},
+{p:"휴식",t:"쉬는 시간 10분",big:"10분 쉬겠습니다",sub:"아직 못 올리신 분은 보조에게 오세요"},
+{p:"4부 · 자동 답변",t:"자주 받는 질문 10개",pts:["손님(환자)이 자주 묻는 질문을 뽑아 보세요","한 줄에 하나씩, 짧게","우리 가게에 안 맞는 질문은 지우기"]},
+{p:"4부 · 자동 답변",t:"사실은 내가 주고, AI는 문장만",pts:["가격·시간·주소는 내가 준다","모르는 건 '확인 후 안내드리겠습니다'","(병원) 진단·치료 상담은 '내원 상담'으로 안내"]},
+{p:"4부 · 자동 답변",t:"말투 바꿔 보기",pts:["더 친근하게","더 정중하게","한 줄씩 읽고 사실과 다른 곳 고치기"],cam:"📷 같은 답 3가지 말투"},
+{p:"5부 · 글쓰기 비서",t:"오늘 만드는 '도구'의 정체",big:"프로그램이 아니라,\n다시 쓰는 지시문"},
+{p:"5부 · 글쓰기 비서",t:"비서에게 줄 것 3가지",pts:["역할 — 무엇을 써 주는지","말투·분량","하지 말 것 — 지어내기·개인정보·과장"]},
+{p:"5부 · 글쓰기 비서",t:"저장해서 계속 쓰기",pts:["지시문을 메모장에 보관","다음에 복사해서 맨 앞에 붙여넣기"]},
+{p:"6부 · 비교",t:"같은 지시문, 다른 AI",pts:["Codex에도 같은 지시문을 넣어 봅니다","우열 말고 차이만 적어 보세요"],cam:"📷 Claude · Codex 결과 나란히"},
+{p:"7부 · 검증",t:"'됐습니다'를 믿지 마세요",pts:["메모에 없는 문장이 슬쩍 들어갑니다","AI의 자체 점검이 틀릴 때도 있습니다","요청하지 않은 문구가 붙기도 합니다"],cam:"📷 실제 사례 캡처 (강의 직전 재현)"},
+{p:"7부 · 검증",t:"확인 체크리스트 6가지",pts:["실제로 열어 보았다","숫자(가격·시간·전화)를 원본과 맞춰 보았다","지어낸 내용이 없다","반복되거나 어색한 곳이 없다","(병원) 보장·비교·과장 표현이 없다","마지막에 사람(나)이 읽었다"]},
+{p:"8부 · 마무리",t:"이번 주 딱 하나",pts:["홈페이지를 진짜 정보로 다시 만들어 보기","질문 답변을 실제 응대에 써 보기","글쓰기 비서로 글 1개 올려 보기"],sub:"카드 11에 적어 주세요 · 후속 안내는 강의 때"}
+];
+var i=0,slide=document.getElementById('slide');
+function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c]})}
+function render(){
+  var s=S[i],h='<div class="part">'+esc(s.p)+'</div><h1>'+esc(s.t)+'</h1>';
+  if(s.big)h+='<div class="big">'+esc(s.big).replace(/\n/g,'<br>')+'</div>';
+  if(s.box)h+='<div class="box">'+esc(s.box)+'</div>';
+  if(s.pts)h+='<ul class="pts">'+s.pts.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul>';
+  if(s.sub)h+='<div class="sub">'+esc(s.sub)+'</div>';
+  if(s.cam)h+='<div class="cam">'+esc(s.cam)+'</div>';
+  slide.innerHTML=h;
+  document.getElementById('pos').textContent=(i+1)+' / '+S.length;
+  document.getElementById('prog').style.width=((i+1)/S.length*100)+'%';
+  try{location.hash='#'+(i+1)}catch(e){}
+}
+function go(d){i=Math.max(0,Math.min(S.length-1,i+d));render()}
+document.getElementById('prev').onclick=function(){go(-1)};
+document.getElementById('next').onclick=function(){go(1)};
+
+document.getElementById('fs').onclick=function(){var d=document.documentElement;if(document.fullscreenElement){document.exitFullscreen()}else if(d.requestFullscreen){d.requestFullscreen()}};
+document.addEventListener('keydown',function(e){
+  if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '){e.preventDefault();go(1)}
+  else if(e.key==='ArrowLeft'||e.key==='PageUp'){go(-1)}
+  
+  else if(e.key==='f'||e.key==='F'){document.getElementById('fs').click()}
+  else if(e.key==='Home'){i=0;render()}else if(e.key==='End'){i=S.length-1;render()}
+});
+var x0=null;
+document.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
+document.addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>50)go(dx<0?1:-1);x0=null},{passive:true});
+var h=parseInt((location.hash||'').slice(1),10);if(h>=1&&h<=S.length)i=h-1;
+render();
+</script>
+</body>
+</html>
